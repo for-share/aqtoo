@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'person_auth/base.html' %}
+{% block content %}
                 <form class="myfor" action="{% url 'reg' %}" method="post">
                     {% csrf_token %}
                     {{ form }}
                     <input type="submit" name="Create" value="Create">
                 </form>
 
-</body>
-</html>
+{% endblock %}

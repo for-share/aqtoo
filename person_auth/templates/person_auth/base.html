@@ -7,6 +7,34 @@
     <link href="{% static 'person_auth/css/bootstrap.min.css' %}" rel="stylesheet">
 </head>
 <body>
+<div class="container-fluid" style="height: 50px"></div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'phone' %}">Name site</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="{% url 'phone' %}">Phone<span
+                        class="sr-only">(current)</span></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if user_name %}
+                    <li><a href="{% url 'logout' %}">Вийти ({{ user_name }})</a></li>
+                {% else %}
+                    <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
 <div class="container">
 {% block content %}
 {% endblock %}

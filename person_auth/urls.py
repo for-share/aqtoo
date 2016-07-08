@@ -6,5 +6,6 @@ from person_auth import views
 urlpatterns = [
     url(r'^reg/', views.reg, name='reg'),
     url(r'^login/', views.login, name="login"),
+    url(r'^logout/', views.logout, name="logout"),
     url(r'^phone/', views.phone, name="phone"),
 ]

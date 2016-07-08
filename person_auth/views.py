@@ -17,7 +17,7 @@ def reg(request):
 
 
 def login(request):
-    if request.POST:
+    if request.POST and not auth.get_user(request).is_authenticated():
         username = request.POST.get('username', '')
         password = request.POST.get('password', '')
         user = auth.authenticate(username=username, password=password)
@@ -39,6 +39,12 @@ def phone(request):
         all_number = Number.objects.filter(user=user)
         context = {
             'all_number': all_number[::-1],
+            'user_name': user.username,
         }
         return render(request, 'person_auth/num_page.html', context=context)
+    return redirect('login')
+
+
+def logout(request):
+    auth.logout(request)
     return redirect('login')

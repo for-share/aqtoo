@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <form action="{% url 'phone' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="phone">
+        <input type="submit" name="add">
+    </form>
+    {% for n in all_number %}
+        <li>{{ n }}</li>
+        }
+    {% endfor %}
+</ul>
+</body>
+</html>

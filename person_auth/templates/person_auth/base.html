@@ -1,11 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="{% static 'person_auth/css/bootstrap.min.css' %}" rel="stylesheet">
 </head>
 <body>
+<div class="container">
 {% block content %}
 {% endblock %}
+</div>
+<script src="{% static 'person_auth/js/bootstrap.min.js' %}"></script>
 </body>
 </html>

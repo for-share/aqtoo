@@ -1,13 +1,24 @@
 {% extends 'person_auth/base.html' %}
 {% block content %}
-<ul>
-    <form action="{% url 'phone' %}" method="post">
+    <form class="form-inline" action="{% url 'phone' %}" method="post">
         {% csrf_token %}
-        <input type="text" name="phone">
-        <input type="submit" name="add">
+        <input type="text" name="phone" class="form-control" placeholder="Phone">
+        <input type="submit" name="add" class="btn btn-default">
     </form>
-    {% for n in all_number %}
-        <li>{{ n }}</li>
-    {% endfor %}
-</ul>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Number</th>
+            <th>Status</th>
+        </tr>
+        <tbody>
+        {% for n in all_number %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ n }}</td>
+                <td>0</td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

@@ -1,9 +1,8 @@
 {% extends 'person_auth/base.html' %}
 {% block content %}
-                <form class="myfor" action="{% url 'reg' %}" method="post">
+                <form class="form-group" action="{% url 'reg' %}" method="post">
                     {% csrf_token %}
                     {{ form }}
-                    <input type="submit" name="Create" value="Create">
+                    <input type="submit" name="Create" value="Create" class="btn btn-default">
                 </form>
-
 {% endblock %}

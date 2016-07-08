@@ -38,7 +38,7 @@ def phone(request):
             Number(phone_number=new_phone, user=user).save()
         all_number = Number.objects.filter(user=user)
         context = {
-            'all_number': all_number,
+            'all_number': all_number[::-1],
         }
         return render(request, 'person_auth/num_page.html', context=context)
     return redirect('login')
